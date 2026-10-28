@@ -1,0 +1,47 @@
+# Optional Render Blueprint for the HotelPro API.
+# The dashboard steps in docs/DEPLOYMENT.md produce the same service; use whichever you prefer.
+# Secrets are marked sync:false so Render asks for them — they are never stored in Git.
+services:
+  - type: web
+    name: hotelpro-api
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      - key: TRUST_PROXY
+        value: "2"
+      - key: COOKIE_SAMESITE
+        value: lax
+      - key: HOTEL_TIMEZONE
+        value: Asia/Kolkata
+      - key: PAYMENT_PROVIDER
+        value: razorpay
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: CLOUDINARY_URL
+        sync: false

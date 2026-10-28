@@ -1,0 +1,184 @@
+/* ──────────────────────────────────────────────────────────────
+   HotelPro design tokens
+   Lake navy + ivory + brass. Marcellus (inscriptional display, like
+   engraved hotel signage) for headings, Manrope for everything else.
+   ────────────────────────────────────────────────────────────── */
+:root {
+  --hp-night: #0e1b31;
+  --hp-navy: #14294a;
+  --hp-navy-soft: #2a4166;
+  --hp-ivory: #f8f5ee;
+  --hp-paper: #ffffff;
+  --hp-stone: #e4ddcf;
+  --hp-stone-soft: #efeae0;
+  --hp-brass: #a47a36;
+  --hp-brass-light: #d9bc86;
+  --hp-brass-ink: #7a5823; /* AA on ivory and white */
+  --hp-ink: #1b2233;
+  --hp-muted: #5d6474;
+  --hp-lake: #2e6a68;
+  --hp-lake-soft: #e3efed;
+  --hp-rust: #a4402e;
+  --hp-rust-soft: #f7e6e2;
+  --hp-amber-soft: #f6ecd8;
+
+  --hp-font-display: 'Marcellus', 'Times New Roman', serif;
+  --hp-font-body: 'Manrope Variable', 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* major-third scale */
+  --hp-fs-xs: 0.8rem;
+  --hp-fs-sm: 0.9rem;
+  --hp-fs-base: 1rem;
+  --hp-fs-md: 1.25rem;
+  --hp-fs-lg: 1.563rem;
+  --hp-fs-xl: 1.953rem;
+  --hp-fs-2xl: 2.441rem;
+  --hp-fs-3xl: 3.052rem;
+  --hp-fs-4xl: 3.815rem;
+
+  --hp-radius-sm: 6px;
+  --hp-radius: 10px;
+  --hp-radius-lg: 16px;
+  --hp-shadow-panel: 0 1px 0 rgba(20, 41, 74, 0.04), 0 8px 24px -16px rgba(20, 41, 74, 0.28);
+  --hp-shadow-float: 0 24px 48px -24px rgba(14, 27, 49, 0.45);
+
+  /* Bootstrap hooks */
+  --bs-body-font-family: var(--hp-font-body);
+  --bs-body-color: var(--hp-ink);
+  --bs-body-bg: var(--hp-ivory);
+  --bs-border-color: var(--hp-stone);
+  --bs-link-color: var(--hp-navy);
+  --bs-link-color-rgb: 20, 41, 74;
+  --bs-link-hover-color: var(--hp-brass-ink);
+  --bs-link-hover-color-rgb: 122, 88, 35;
+  --bs-primary: var(--hp-navy);
+  --bs-primary-rgb: 20, 41, 74;
+  --bs-secondary-color: var(--hp-muted);
+  --bs-border-radius: var(--hp-radius-sm);
+  --bs-border-radius-lg: var(--hp-radius);
+  --bs-focus-ring-color: rgba(164, 122, 54, 0.35);
+}
+
+body {
+  font-feature-settings: 'tnum' 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, .display-type {
+  font-family: var(--hp-font-display);
+  font-weight: 400;
+  color: var(--hp-navy);
+  letter-spacing: 0.005em;
+  line-height: 1.15;
+}
+h1 { font-size: clamp(2rem, 1.4rem + 2.4vw, var(--hp-fs-3xl)); }
+h2 { font-size: clamp(1.6rem, 1.3rem + 1.2vw, var(--hp-fs-2xl)); }
+h3 { font-size: var(--hp-fs-lg); }
+h4 { font-size: var(--hp-fs-md); }
+h5, h6 { font-family: var(--hp-font-body); font-weight: 700; color: var(--hp-navy); }
+
+.num { font-variant-numeric: tabular-nums; }
+/* Figures use the body face: the display serif's numerals are hard to read at size (0 vs O). */
+.figure { font-family: var(--hp-font-body); font-weight: 700; font-size: clamp(1.35rem, 1.1rem + 0.6vw, 1.7rem); line-height: 1.15; color: var(--hp-navy); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.text-muted, .text-secondary { color: var(--hp-muted) !important; }
+.text-brass { color: var(--hp-brass-ink) !important; }
+.lead { font-size: var(--hp-fs-md); font-weight: 400; }
+.measure { max-width: 68ch; }
+
+a { text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--hp-brass); outline-offset: 2px; }
+
+/* ── buttons ─────────────────────────────────── */
+.btn { font-weight: 600; border-radius: var(--hp-radius-sm); padding: 0.6rem 1.15rem; }
+.btn-sm { padding: 0.35rem 0.75rem; }
+.btn-primary {
+  --bs-btn-bg: var(--hp-navy);
+  --bs-btn-border-color: var(--hp-navy);
+  --bs-btn-hover-bg: var(--hp-night);
+  --bs-btn-hover-border-color: var(--hp-night);
+  --bs-btn-active-bg: var(--hp-night);
+  --bs-btn-disabled-bg: var(--hp-navy-soft);
+  --bs-btn-disabled-border-color: var(--hp-navy-soft);
+}
+.btn-brass {
+  --bs-btn-color: var(--hp-night);
+  --bs-btn-bg: var(--hp-brass-light);
+  --bs-btn-border-color: var(--hp-brass-light);
+  --bs-btn-hover-color: var(--hp-night);
+  --bs-btn-hover-bg: #cfae72;
+  --bs-btn-hover-border-color: #cfae72;
+  --bs-btn-active-bg: #c4a163;
+  --bs-btn-disabled-bg: var(--hp-brass-light);
+}
+.btn-outline-primary {
+  --bs-btn-color: var(--hp-navy);
+  --bs-btn-border-color: var(--hp-navy);
+  --bs-btn-hover-bg: var(--hp-navy);
+  --bs-btn-hover-border-color: var(--hp-navy);
+  --bs-btn-active-bg: var(--hp-night);
+}
+.btn-quiet {
+  --bs-btn-color: var(--hp-navy);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--hp-stone);
+  --bs-btn-hover-bg: var(--hp-stone-soft);
+  --bs-btn-hover-border-color: var(--hp-stone);
+  --bs-btn-active-bg: var(--hp-stone);
+}
+.btn-danger { --bs-btn-bg: var(--hp-rust); --bs-btn-border-color: var(--hp-rust); --bs-btn-hover-bg: #8a3426; --bs-btn-hover-border-color: #8a3426; }
+.btn-outline-danger { --bs-btn-color: var(--hp-rust); --bs-btn-border-color: var(--hp-rust); --bs-btn-hover-bg: var(--hp-rust); --bs-btn-hover-border-color: var(--hp-rust); }
+
+/* ── forms ───────────────────────────────────── */
+.form-label { font-weight: 600; font-size: var(--hp-fs-sm); color: var(--hp-navy); margin-bottom: 0.3rem; }
+.form-control, .form-select { border-color: #d6cdbc; background-color: var(--hp-paper); padding: 0.6rem 0.8rem; }
+.form-control:focus, .form-select:focus { border-color: var(--hp-brass); box-shadow: 0 0 0 0.2rem rgba(164, 122, 54, 0.2); }
+.form-text { color: var(--hp-muted); }
+.invalid-feedback { color: var(--hp-rust); }
+.form-control.is-invalid, .form-select.is-invalid { border-color: var(--hp-rust); }
+.form-check-input:checked { background-color: var(--hp-navy); border-color: var(--hp-navy); }
+
+/* ── surfaces ────────────────────────────────── */
+.panel {
+  background: var(--hp-paper);
+  border: 1px solid var(--hp-stone);
+  border-radius: var(--hp-radius);
+  box-shadow: var(--hp-shadow-panel);
+}
+.panel-pad { padding: 1.25rem; }
+@media (min-width: 768px) { .panel-pad { padding: 1.5rem; } }
+.panel-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--hp-stone); }
+.panel-header h2, .panel-header h3 { margin: 0; font-size: var(--hp-fs-md); }
+
+.table { --bs-table-bg: transparent; --bs-table-hover-bg: var(--hp-stone-soft); margin: 0; }
+.table > thead th { font-size: var(--hp-fs-xs); font-weight: 700; color: var(--hp-muted); border-bottom-color: var(--hp-stone); white-space: nowrap; }
+.table > :not(caption) > * > * { padding: 0.75rem 1rem; border-bottom-color: var(--hp-stone-soft); vertical-align: middle; }
+
+.modal-content { border-radius: var(--hp-radius); border: 1px solid var(--hp-stone); }
+.modal-title { font-family: var(--hp-font-display); color: var(--hp-navy); }
+.dropdown-menu { border-color: var(--hp-stone); box-shadow: var(--hp-shadow-panel); border-radius: var(--hp-radius-sm); }
+.nav-tabs { border-bottom-color: var(--hp-stone); }
+.nav-tabs .nav-link { color: var(--hp-muted); font-weight: 600; border: 0; border-bottom: 2px solid transparent; }
+.nav-tabs .nav-link.active { color: var(--hp-navy); background: transparent; border-bottom-color: var(--hp-brass); }
+
+/* ── status badges (sentence case, tinted) ───── */
+.status { display: inline-flex; align-items: center; gap: 0.35rem; font-size: var(--hp-fs-xs); font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 999px; white-space: nowrap; }
+.status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.status-good { color: var(--hp-lake); background: var(--hp-lake-soft); }
+.status-wait { color: #7a5a14; background: var(--hp-amber-soft); }
+.status-bad { color: var(--hp-rust); background: var(--hp-rust-soft); }
+.status-neutral { color: var(--hp-navy-soft); background: #e6eaf1; }
+.status-info { color: var(--hp-navy); background: #dfe7f3; }
+.status-test { color: #6b3fa0; background: #efe6f8; }
+
+/* ── skeletons ───────────────────────────────── */
+.skeleton { background: linear-gradient(90deg, var(--hp-stone-soft) 25%, #f6f2ea 50%, var(--hp-stone-soft) 75%); background-size: 200% 100%; animation: hp-shimmer 1.4s infinite; border-radius: var(--hp-radius-sm); }
+@keyframes hp-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* toast */
+.Toastify__toast { font-family: var(--hp-font-body); border-radius: var(--hp-radius-sm); }

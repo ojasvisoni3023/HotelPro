@@ -1,0 +1,9 @@
+.invoice { background: var(--hp-paper); border: 1px solid var(--hp-stone); border-radius: var(--hp-radius); padding: 2rem; }
+@media (max-width: 576px) { .invoice { padding: 1.25rem; } }
+.invoice tfoot td { border-bottom: 0; padding-top: 0.35rem; padding-bottom: 0.35rem; }
+@media print {
+  .no-print, .site-header, .site-footer, .announcement, .dash-side, .dash-top, .Toastify { display: none !important; }
+  body { background: #fff; }
+  .invoice { border: 0; padding: 0; max-width: none !important; }
+  .invoice-page { padding: 0 !important; }
+}

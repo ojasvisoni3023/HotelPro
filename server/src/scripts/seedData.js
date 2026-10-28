@@ -1,0 +1,153 @@
+/** Fictional demonstration catalogue for HotelPro. Photos: Unsplash (https://unsplash.com/license). */
+const u = (id, alt) => ({ url: `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1600&q=75`, alt, credit: 'Photo via Unsplash' });
+
+export const IMG = {
+  beachResortPool: u('1566073771259-6a8506099945', 'Beachfront resort pool with loungers'),
+  nightPool: u('1542314831-068cd1dbfeeb', 'Resort pool lit at dusk'),
+  palmPoolDusk: u('1551882547-ff40c63fe5fa', 'Palm-lined pool at sunset'),
+  modernRoom: u('1631049307264-da0ec9d70304', 'Bright modern king room'),
+  warmRoom: u('1618773928121-c32242e63f39', 'Warmly lit double room'),
+  classicRoom: u('1590490360182-c33d57733427', 'Classic room with sofa and drapes'),
+  glassSuite: u('1578683010236-d716f9a3f461', 'Suite with glass-walled bathroom'),
+  tropicalPool: u('1520250497591-112f2f40a3f4', 'Tropical pool framed by hills'),
+  modernPool: u('1571896349842-33c89424de2d', 'Contemporary hotel and reflecting pool'),
+  woodRoom: u('1611892440504-42a792e24d32', 'Room with timber panelling and garden view'),
+  twinRoom: u('1595576508898-0ad5c879a061', 'Twin room with two beds'),
+  infinitySea: u('1584132967334-10e028bd69f7', 'Infinity pool facing the sea'),
+  whiteFacade: u('1564501049412-61c2a3083791', 'White facade and pool courtyard'),
+  mountainLoungers: u('1445019980597-93fa8acb246c', 'Sun loungers facing the mountains'),
+  courtyard: u('1455587734955-081b22074882', 'Hotel atrium with balconies'),
+  valleyBed: u('1596394516093-501ba68a0ba6', 'Open-air bed with valley view'),
+  seaAerial: u('1540541338287-41700207dee6', 'Resort pool above the ocean'),
+  seasideSunset: u('1561501900-3701fa6a0864', 'Seaside resort at sunset'),
+  whiteRoom: u('1512918728675-ed5a9ecdebfd', 'Airy white bedroom'),
+  tuftedBed: u('1505693416388-ac5ce068fe85', 'Bedroom with tufted headboard'),
+  suiteLounge: u('1560448204-e02f11c3d0e2', 'Suite living room'),
+  forestPath: u('1586375300773-8384e3e4916f', 'Forest path to a timber cabin'),
+  darkModern: u('1566665797739-1674de7a421a', 'Dark wood king room'),
+  mirrorBed: u('1559599238-308793637427', 'Elegant bed with gilt mirror'),
+  sunsetPool: u('1600011689032-8b628b8a8747', 'Pool and palms at sunset'),
+  oceanRoom: u('1602002418082-a4443e081dd1', 'Room opening onto turquoise water'),
+  simpleRoom: u('1576675784201-0e142b423952', 'Minimal room with work desk'),
+  palmInfinity: u('1610641818989-c2051b5e2cfd', 'Infinity pool among palms'),
+  bohoRoom: u('1609766857041-ed402ea8069a', 'Light room with natural textures'),
+  library: u('1590381105924-c72589b9ef3f', 'Wood-panelled library lounge'),
+  crispBed: u('1578898887932-dce23a595ad4', 'Crisp white bed and reading light'),
+};
+
+export const HOTELS = [
+  {
+    key: 'ivory',
+    name: 'The Ivory Crest',
+    tagline: 'A lakeside heritage retreat in the City of Lakes',
+    description:
+      'Set on the quiet western shore of Lake Pichola, The Ivory Crest pairs restored Rajput architecture with contemporary comfort. Courtyards open onto the water, the rooftop terrace looks across to the City Palace, and a wood-panelled library hosts evening chai. Our concierge arranges boat rides, old-city walks and cooking sessions with local families.',
+    address: { line1: '14 Lal Ghat Road', city: 'Udaipur', state: 'Rajasthan', country: 'India', postalCode: '313001' },
+    location: { lat: 24.5786, lng: 73.6816 },
+    contact: { phone: '+91 294 000 1100', email: 'stay@ivorycrest.example', website: 'https://ivorycrest.example' },
+    starRating: 5,
+    amenities: ['Lake view', 'Pool', 'Spa', 'Rooftop restaurant', 'Free Wi-Fi', 'Airport transfer', 'Library', 'Yoga'],
+    images: [IMG.whiteFacade, IMG.palmPoolDusk, IMG.library, IMG.classicRoom],
+    policies: 'Check-in from 2:00 PM, check-out until 11:00 AM. Government photo ID required at check-in. Pets are not allowed.',
+    categories: [
+      { name: 'Heritage Room', bedType: 'Queen', maxGuests: 2, sizeSqm: 28, basePrice: 8500, amenities: ['Free Wi-Fi', 'Air conditioning', 'Rain shower', 'Tea & coffee', 'Smart TV'], images: [IMG.classicRoom, IMG.tuftedBed], description: 'Hand-painted walls, carved jharokha windows and a plush queen bed overlooking the inner courtyard.', rooms: ['101', '102', '103', '104', '105'] },
+      { name: 'Lake View Deluxe', bedType: 'King', maxGuests: 3, sizeSqm: 36, basePrice: 12000, amenities: ['Lake view', 'Free Wi-Fi', 'Air conditioning', 'Bathtub', 'Minibar', 'Smart TV'], images: [IMG.mirrorBed, IMG.woodRoom], description: 'A king room with a private window seat facing Lake Pichola and a deep soaking tub.', rooms: ['201', '202', '203', '204'] },
+      { name: 'Maharaja Suite', bedType: 'King', maxGuests: 4, sizeSqm: 72, basePrice: 26000, amenities: ['Lake view', 'Separate living room', 'Butler service', 'Bathtub', 'Minibar', 'Free Wi-Fi', 'Balcony'], images: [IMG.suiteLounge, IMG.glassSuite], description: 'Our signature suite with a separate drawing room, private balcony over the lake and butler service.', rooms: ['301', '302'] },
+    ],
+    seasons: [{ name: 'Festive season', startOffset: 30, endOffset: 45, multiplier: 1.25 }],
+  },
+  {
+    key: 'marigold',
+    name: 'Marigold Bay Resort',
+    tagline: 'Barefoot luxury steps from Candolim beach',
+    description:
+      'Marigold Bay is a low-rise resort wrapped around three pools and a private path to the sand. Days start with fresh poi and end with seafood grills under the palms. Rooms are cool, breezy and finished in local laterite stone and cane.',
+    address: { line1: 'Fort Aguada Road, Candolim', city: 'Goa', state: 'Goa', country: 'India', postalCode: '403515' },
+    location: { lat: 15.5167, lng: 73.7623 },
+    contact: { phone: '+91 832 000 2200', email: 'hello@marigoldbay.example' },
+    starRating: 4,
+    amenities: ['Beach access', 'Pool', 'Bar', 'Free Wi-Fi', 'Kids club', 'Spa', 'Bicycle hire'],
+    images: [IMG.beachResortPool, IMG.seaAerial, IMG.sunsetPool, IMG.seasideSunset],
+    policies: 'Check-in from 2:00 PM, check-out until 11:00 AM. Quiet hours 11 PM – 7 AM.',
+    categories: [
+      { name: 'Garden Room', bedType: 'Queen', maxGuests: 2, sizeSqm: 26, basePrice: 6200, amenities: ['Garden view', 'Free Wi-Fi', 'Air conditioning', 'Patio', 'Tea & coffee'], images: [IMG.bohoRoom, IMG.whiteRoom], description: 'A calm queen room opening onto a private patio in the tropical garden.', rooms: ['G1', 'G2', 'G3', 'G4', 'G5', 'G6'] },
+      { name: 'Ocean Deluxe', bedType: 'King', maxGuests: 3, sizeSqm: 34, basePrice: 9800, amenities: ['Sea view', 'Balcony', 'Free Wi-Fi', 'Air conditioning', 'Minibar', 'Rain shower'], images: [IMG.oceanRoom, IMG.whiteRoom], description: 'Wake up to the Arabian Sea from a king bed and a wide sunset balcony.', rooms: ['O1', 'O2', 'O3', 'O4'] },
+      { name: 'Beach Villa', bedType: 'King + sofa bed', maxGuests: 4, sizeSqm: 80, basePrice: 18500, amenities: ['Private plunge pool', 'Sea view', 'Outdoor shower', 'Free Wi-Fi', 'Minibar', 'Kitchenette'], images: [IMG.palmInfinity, IMG.infinitySea], description: 'A standalone villa with a plunge pool, outdoor shower and direct path to the beach.', rooms: ['V1', 'V2'] },
+    ],
+    seasons: [{ name: 'Peak beach season', startOffset: 20, endOffset: 60, multiplier: 1.3 }],
+  },
+  {
+    key: 'deodar',
+    name: 'Deodar Ridge Retreat',
+    tagline: 'Cedar forests, valley views and slow mornings',
+    description:
+      'Perched above the Beas valley among old deodar trees, Deodar Ridge is a retreat for walkers and readers. Timber rooms keep the fireplace warm, the kitchen serves Himachali dham on weekends, and trails start at the gate.',
+    address: { line1: 'Old Manali Road, Dhungri', city: 'Manali', state: 'Himachal Pradesh', country: 'India', postalCode: '175131' },
+    location: { lat: 32.2432, lng: 77.1892 },
+    contact: { phone: '+91 1902 000 330', email: 'reservations@deodarridge.example' },
+    starRating: 4,
+    amenities: ['Mountain view', 'Fireplace lounge', 'Free Wi-Fi', 'Guided treks', 'Restaurant', 'Free parking'],
+    images: [IMG.valleyBed, IMG.mountainLoungers, IMG.forestPath, IMG.tropicalPool],
+    policies: 'Check-in from 1:00 PM, check-out until 10:30 AM. Heaters provided on request in winter.',
+    checkInTime: '13:00',
+    checkOutTime: '10:30',
+    categories: [
+      { name: 'Forest Cabin Room', bedType: 'Queen', maxGuests: 2, sizeSqm: 24, basePrice: 5400, amenities: ['Forest view', 'Heater', 'Free Wi-Fi', 'Tea & coffee'], images: [IMG.darkModern, IMG.crispBed], description: 'Snug timber room facing the cedar forest, with a heater and thick quilts.', rooms: ['F1', 'F2', 'F3', 'F4'] },
+      { name: 'Valley View Deluxe', bedType: 'King', maxGuests: 3, sizeSqm: 32, basePrice: 7900, amenities: ['Valley view', 'Balcony', 'Heater', 'Free Wi-Fi', 'Bathtub'], images: [IMG.valleyBed, IMG.woodRoom], description: 'Our most requested room: a king bed and balcony looking straight down the Beas valley.', rooms: ['D1', 'D2', 'D3', 'D4'] },
+      { name: 'Family Chalet', bedType: 'King + two singles', maxGuests: 5, sizeSqm: 58, basePrice: 12500, amenities: ['Mountain view', 'Two bedrooms', 'Fireplace', 'Free Wi-Fi', 'Kitchenette'], images: [IMG.warmRoom, IMG.twinRoom], description: 'Two-bedroom chalet with a fireplace sitting room — space for the whole family.', rooms: ['C1', 'C2'] },
+    ],
+    seasons: [{ name: 'Snow season', startOffset: 40, endOffset: 75, multiplier: 1.2 }],
+  },
+  {
+    key: 'harbour',
+    name: 'Harbour Line Hotel',
+    tagline: 'A modern base at the edge of the Fort district',
+    description:
+      'Harbour Line is a design-led business hotel a short walk from the Gateway of India. Expect fast Wi-Fi, quiet rooms, a 24-hour gym and a rooftop pool with harbour views — plus a lobby café that takes its coffee seriously.',
+    address: { line1: '22 Shoorji Vallabhdas Marg, Ballard Estate', city: 'Mumbai', state: 'Maharashtra', country: 'India', postalCode: '400001' },
+    location: { lat: 18.9388, lng: 72.8402 },
+    contact: { phone: '+91 22 0000 4400', email: 'frontdesk@harbourline.example' },
+    starRating: 4,
+    amenities: ['Rooftop pool', 'Gym', 'Business centre', 'Free Wi-Fi', 'Café', 'Airport transfer', 'Laundry'],
+    images: [IMG.modernPool, IMG.courtyard, IMG.nightPool, IMG.modernRoom],
+    policies: 'Check-in from 2:00 PM, check-out until 12:00 PM. Late check-out subject to availability.',
+    checkOutTime: '12:00',
+    categories: [
+      { name: 'Standard King', bedType: 'King', maxGuests: 2, sizeSqm: 24, basePrice: 7200, amenities: ['City view', 'Work desk', 'Free Wi-Fi', 'Air conditioning', 'Smart TV'], images: [IMG.modernRoom, IMG.simpleRoom], description: 'Smart, quiet king room with an ergonomic desk and blackout blinds.', rooms: ['501', '502', '503', '504', '505', '506'] },
+      { name: 'Executive Twin', bedType: 'Two doubles', maxGuests: 3, sizeSqm: 30, basePrice: 8800, amenities: ['Work desk', 'Free Wi-Fi', 'Air conditioning', 'Lounge access', 'Smart TV'], images: [IMG.twinRoom, IMG.crispBed], description: 'Two double beds, executive lounge access and evening cocktails.', rooms: ['701', '702', '703', '704'] },
+      { name: 'Skyline Suite', bedType: 'King', maxGuests: 4, sizeSqm: 60, basePrice: 19000, amenities: ['Harbour view', 'Separate living room', 'Bathtub', 'Lounge access', 'Minibar', 'Free Wi-Fi'], images: [IMG.glassSuite, IMG.warmRoom], description: 'Corner suite with floor-to-ceiling harbour views and a separate living room.', rooms: ['1201', '1202'] },
+    ],
+    seasons: [],
+  },
+];
+
+export const PEOPLE = {
+  admin: { name: 'Aarav Mehta', email: 'admin@hotelpro.demo', role: 'admin' },
+  managers: [
+    { name: 'Priya Raman', email: 'manager@hotelpro.demo', role: 'manager', hotels: ['ivory', 'marigold'] },
+    { name: 'Kabir Sethi', email: 'manager2@hotelpro.demo', role: 'manager', hotels: ['deodar', 'harbour'] },
+  ],
+  staff: [
+    { name: 'Neha Joshi', email: 'staff@hotelpro.demo', role: 'staff', hotels: ['ivory'], position: 'Front desk' },
+    { name: 'Ravi Kumar', email: 'housekeeping@hotelpro.demo', role: 'staff', hotels: ['ivory'], position: 'Housekeeping' },
+    { name: 'Maria Fernandes', email: 'staff2@hotelpro.demo', role: 'staff', hotels: ['marigold'], position: 'Front desk' },
+    { name: 'Tenzin Dorje', email: 'staff3@hotelpro.demo', role: 'staff', hotels: ['deodar', 'harbour'], position: 'Front desk' },
+  ],
+  guests: [
+    { name: 'Ananya Iyer', email: 'guest@hotelpro.demo', role: 'guest', phone: '+91 98000 00001' },
+    { name: 'Rohan Gupta', email: 'rohan@guests.demo', role: 'guest', phone: '+91 98000 00002' },
+    { name: 'Sara Khan', email: 'sara@guests.demo', role: 'guest', phone: '+91 98000 00003' },
+    { name: 'Vikram Nair', email: 'vikram@guests.demo', role: 'guest', phone: '+91 98000 00004' },
+    { name: 'Emily Clarke', email: 'emily@guests.demo', role: 'guest', phone: '+44 7700 900001' },
+    { name: 'Arjun Patel', email: 'arjun@guests.demo', role: 'guest', phone: '+91 98000 00006' },
+  ],
+};
+
+export const REVIEW_TEXT = [
+  { rating: 5, title: 'Unforgettable stay', comment: 'The staff remembered our names from day one and the room was spotless. Breakfast on the terrace was the highlight of the trip.' },
+  { rating: 4, title: 'Lovely, a few small niggles', comment: 'Beautiful property and very comfortable beds. Wi-Fi was patchy in the evenings, but the team moved us without fuss.' },
+  { rating: 5, title: 'Worth every rupee', comment: 'Check-in was quick, the room upgrade was a lovely surprise and the spa was excellent. We are already planning to come back.' },
+  { rating: 3, title: 'Good location, average food', comment: 'Rooms are clean and the location is perfect. The restaurant menu felt limited after a couple of nights.' },
+  { rating: 4, title: 'Great for a long weekend', comment: 'Peaceful, well run and thoughtful touches everywhere. The housekeeping team was quick to respond to every request.' },
+  { rating: 5, title: 'Exceptional service', comment: 'From the airport pickup to the farewell, everything was seamless. The view from our room was stunning.' },
+];
